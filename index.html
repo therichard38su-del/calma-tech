@@ -1004,7 +1004,7 @@ function mostrarResultado() {
       grado:      datosUsuario.grado,
       edad:       datosUsuario.edad,
       nivel:      nivel.nivel,
-      porcentaje: porcentaje + '%'
+      porcentaje: porcentaje
     })
   })
   .then(function() {
@@ -1047,7 +1047,7 @@ function verHistorial() {
           '<div class="registro-detalle">' + (r.fecha || '') + '</div>' +
         '</div>' +
         '<div class="registro-derecha">' +
-          '<div class="registro-pct">' + r.porcentaje + '</div>' +
+          '<div class="registro-pct">' + r.porcentaje + '%</div>' +
         '</div>';
       lista.appendChild(div);
     });
@@ -1094,7 +1094,7 @@ function cargarPanel() {
     var sumPct = 0;
     var contPct = 0;
     registros.forEach(function(r) {
-      var n = parseInt(r.porcentaje);
+      var n = parseFloat(r.porcentaje);
       if (!isNaN(n)) { sumPct += n; contPct++; }
     });
     document.getElementById('stat-promedio').textContent = contPct > 0 ? Math.round(sumPct / contPct) + '%' : '—';
@@ -1110,7 +1110,7 @@ function cargarPanel() {
           '<div class="registro-detalle">Grado ' + r.grado + ' · ' + r.edad + ' años · ' + (r.fecha || '') + '</div>' +
         '</div>' +
         '<div class="registro-derecha">' +
-          '<div class="registro-pct">' + r.porcentaje + '</div>' +
+          '<div class="registro-pct">' + r.porcentaje + '%</div>' +
           '<div class="registro-nivel">' + r.nivel + '</div>' +
         '</div>';
       lista.appendChild(div);
