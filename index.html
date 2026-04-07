@@ -14,15 +14,12 @@
     --white: #fafff8;
     --cream: #f0f9f0;
     --gray-soft: #7a9e8a;
+    --red-soft: #e57373;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-  html, body {
-    width: 100%;
-    min-height: 100%;
-    -webkit-text-size-adjust: 100%;
-  }
+  html, body { width: 100%; min-height: 100%; -webkit-text-size-adjust: 100%; }
 
   body {
     font-family: Georgia, 'Times New Roman', serif;
@@ -38,32 +35,24 @@
   body::before {
     content: '';
     position: fixed;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
+    top: -50%; right: -20%;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, var(--green-light) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
 
   body::after {
     content: '';
     position: fixed;
-    bottom: -30%;
-    left: -10%;
-    width: 500px;
-    height: 500px;
+    bottom: -30%; left: -10%;
+    width: 500px; height: 500px;
     background: radial-gradient(circle, #e8f5d0 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
 
   .app {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 640px;
+    position: relative; z-index: 1;
+    width: 100%; max-width: 640px;
     padding: 0 16px;
   }
 
@@ -135,7 +124,65 @@
     font-family: Arial, sans-serif;
   }
 
-  /* ===== FORMULARIO ===== */
+  .role-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* ===== BOTONES ===== */
+  .btn {
+    display: inline-block;
+    background: var(--green-deep);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 44px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+    letter-spacing: 0.4px;
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: manipulation;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .btn:hover, .btn:active {
+    background: var(--green-text);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(90,158,122,0.35);
+  }
+
+  .btn:disabled {
+    background: var(--green-mid);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--green-deep);
+    color: var(--green-deep);
+  }
+
+  .btn-outline:hover, .btn-outline:active {
+    background: var(--green-deep);
+    color: white;
+  }
+
+  .btn-small {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+    max-width: 200px;
+  }
+
+  /* ===== FORMULARIOS ===== */
   .form-title {
     font-size: 1.5rem;
     color: var(--green-text);
@@ -153,9 +200,7 @@
     line-height: 1.5;
   }
 
-  .field {
-    margin-bottom: 18px;
-  }
+  .field { margin-bottom: 18px; }
 
   .field label {
     display: block;
@@ -188,49 +233,11 @@
     background: white;
   }
 
-  /* ===== BOTONES ===== */
-  .btn {
-    display: inline-block;
-    background: var(--green-deep);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 15px 44px;
-    font-size: 1rem;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-    letter-spacing: 0.4px;
-    -webkit-appearance: none;
-    appearance: none;
-    touch-action: manipulation;
-  }
-
-  .btn:hover, .btn:active {
-    background: var(--green-text);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(90,158,122,0.35);
-  }
-
-  .btn:disabled {
-    background: var(--green-mid);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-
-  .btn-outline {
-    background: transparent;
-    border: 2px solid var(--green-deep);
-    color: var(--green-deep);
-    padding: 13px 32px;
-    font-size: 0.93rem;
-  }
-
-  .btn-outline:hover, .btn-outline:active {
-    background: var(--green-deep);
-    color: white;
+  .form-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
   }
 
   /* ===== PROGRESO ===== */
@@ -249,7 +256,7 @@
     transition: width 0.4s ease;
   }
 
-  /* ===== PREGUNTA ===== */
+  /* ===== PREGUNTAS ===== */
   .question-num {
     font-size: 0.78rem;
     color: var(--gray-soft);
@@ -419,7 +426,6 @@
     font-family: Arial, sans-serif;
   }
 
-  /* ===== GUARDANDO ===== */
   .saving-box {
     background: var(--cream);
     border-radius: 14px;
@@ -431,7 +437,6 @@
     color: var(--gray-soft);
   }
 
-  /* ===== BOTONES RESULTADO ===== */
   .result-btns {
     display: flex;
     flex-direction: column;
@@ -439,7 +444,26 @@
     align-items: center;
   }
 
-  /* ===== PANEL DE REGISTROS ===== */
+  /* ===== HISTORIAL ESTUDIANTE ===== */
+  .historial-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .historial-title {
+    font-size: 1.6rem;
+    color: var(--green-text);
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .historial-nombre {
+    font-size: 0.93rem;
+    color: var(--gray-soft);
+    font-family: Arial, sans-serif;
+  }
+
+  /* ===== PANEL ADMIN ===== */
   .panel-header {
     text-align: center;
     margin-bottom: 28px;
@@ -493,7 +517,7 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 24px;
-    max-height: 400px;
+    max-height: 420px;
     overflow-y: auto;
   }
 
@@ -507,9 +531,7 @@
     gap: 10px;
   }
 
-  .registro-info {
-    font-family: Arial, sans-serif;
-  }
+  .registro-info { font-family: Arial, sans-serif; }
 
   .registro-nombre {
     font-weight: bold;
@@ -523,19 +545,22 @@
     margin-top: 2px;
   }
 
-  .registro-nivel {
-    font-family: Arial, sans-serif;
-    font-size: 0.82rem;
-    font-weight: bold;
-    color: var(--green-deep);
+  .registro-derecha {
     text-align: right;
-    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    flex-shrink: 0;
   }
 
   .registro-pct {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--green-deep);
+  }
+
+  .registro-nivel {
+    font-size: 0.78rem;
+    color: var(--gray-soft);
+    margin-top: 2px;
   }
 
   .empty-state {
@@ -555,7 +580,22 @@
     padding: 30px 0;
   }
 
+  .error-msg {
+    color: var(--red-soft);
+    font-family: Arial, sans-serif;
+    font-size: 0.88rem;
+    text-align: center;
+    margin-top: 8px;
+    min-height: 20px;
+  }
+
   .center { text-align: center; }
+
+  .divider {
+    height: 1px;
+    background: var(--green-light);
+    margin: 20px 0;
+  }
 
   @media (max-width: 480px) {
     body { padding: 14px 0 36px 0; }
@@ -587,25 +627,23 @@
           y yo les daré descanso."
           <span class="verse-ref">— Mateo 11:28</span>
         </div>
-        <div style="display:flex; flex-direction:column; gap:12px; align-items:center;">
-          <button class="btn" onclick="mostrarPantalla('screen-form')">Comenzar evaluación</button>
-          <button class="btn-outline btn" onclick="mostrarPanel()">Ver registros 📋</button>
+        <div class="role-btns">
+          <button class="btn" onclick="mostrarPantalla('screen-form')">🎒 Soy estudiante</button>
+          <button class="btn btn-outline" onclick="mostrarPantalla('screen-admin-login')">🔑 Soy encargado</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PANTALLA 2: FORMULARIO -->
+  <!-- PANTALLA 2: FORMULARIO ESTUDIANTE -->
   <div class="screen" id="screen-form">
     <div class="card">
       <h2 class="form-title">¡Hola! 👋</h2>
       <p class="form-subtitle">Antes de comenzar, cuéntanos un poco sobre ti.</p>
-
       <div class="field">
         <label>Nombre completo</label>
-        <input type="text" id="input-nombre" placeholder="Ej: María García" maxlength="60">
+        <input type="text" id="input-nombre" placeholder="Ej: María García López" maxlength="80">
       </div>
-
       <div class="field">
         <label>Grado</label>
         <select id="input-grado">
@@ -615,17 +653,17 @@
           <option value="9°">9°</option>
           <option value="10°">10°</option>
           <option value="11°">11°</option>
+          <option value="12°">12°</option>
         </select>
       </div>
-
       <div class="field">
         <label>Edad</label>
         <input type="number" id="input-edad" placeholder="Ej: 15" min="10" max="20">
       </div>
-
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+      <p class="error-msg" id="form-error"></p>
+      <div class="form-nav">
         <button class="btn-back" onclick="mostrarPantalla('screen-welcome')">← Volver</button>
-        <button class="btn" onclick="validarFormulario()">Continuar →</button>
+        <button class="btn btn-small" onclick="validarFormulario()">Continuar →</button>
       </div>
     </div>
   </div>
@@ -641,7 +679,7 @@
       <div class="options-grid" id="options-grid"></div>
       <div class="quiz-nav">
         <button class="btn-back" id="btn-back" onclick="prevQuestion()">← Anterior</button>
-        <button class="btn" id="btn-next" onclick="nextQuestion()" disabled>Siguiente →</button>
+        <button class="btn btn-small" id="btn-next" onclick="nextQuestion()" disabled>Siguiente →</button>
       </div>
     </div>
   </div>
@@ -666,23 +704,62 @@
       </div>
       <div class="saving-box" id="saving-box">Guardando tu resultado... ⏳</div>
       <div class="result-btns">
-        <button class="btn" onclick="reiniciar()">↺ Nueva evaluación</button>
-        <button class="btn-outline btn" onclick="mostrarPanel()">Ver todos los registros 📋</button>
+        <button class="btn" onclick="verHistorial()">📊 Ver mi historial</button>
+        <button class="btn btn-outline" onclick="reiniciar()">↺ Nueva evaluación</button>
       </div>
     </div>
   </div>
 
-  <!-- PANTALLA 5: PANEL DE REGISTROS -->
+  <!-- PANTALLA 5: HISTORIAL ESTUDIANTE -->
+  <div class="screen" id="screen-historial">
+    <div class="card">
+      <div class="historial-header">
+        <h2 class="historial-title">📊 Mi historial</h2>
+        <p class="historial-nombre" id="historial-nombre"></p>
+      </div>
+      <div class="registros-lista" id="historial-lista">
+        <div class="loading-state">Cargando tu historial... ⏳</div>
+      </div>
+      <div class="center">
+        <button class="btn btn-outline btn-small" onclick="reiniciar()">← Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA 6: LOGIN ENCARGADO -->
+  <div class="screen" id="screen-admin-login">
+    <div class="card">
+      <div class="center" style="margin-bottom:24px;">
+        <svg width="52" height="62" viewBox="0 0 72 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="0" width="16" height="86" rx="8" fill="#5a9e7a"/>
+          <rect x="0" y="22" width="72" height="16" rx="8" fill="#5a9e7a"/>
+        </svg>
+      </div>
+      <h2 class="form-title">Acceso encargado</h2>
+      <p class="form-subtitle">Ingresa la contraseña para ver todos los registros.</p>
+      <div class="field">
+        <label>Contraseña</label>
+        <input type="password" id="input-admin-pass" placeholder="Contraseña" onkeydown="if(event.key==='Enter') verificarAdmin()">
+      </div>
+      <p class="error-msg" id="admin-error"></p>
+      <div class="form-nav">
+        <button class="btn-back" onclick="mostrarPantalla('screen-welcome')">← Volver</button>
+        <button class="btn btn-small" onclick="verificarAdmin()">Entrar →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA 7: PANEL ADMIN -->
   <div class="screen" id="screen-panel">
     <div class="card">
       <div class="panel-header">
-        <h2 class="panel-title">📋 Registros</h2>
-        <p class="panel-subtitle">Estudiantes que han completado la evaluación</p>
+        <h2 class="panel-title">📋 Panel de registros</h2>
+        <p class="panel-subtitle">Todos los estudiantes evaluados</p>
       </div>
       <div class="stats-row">
         <div class="stat-box">
           <span class="stat-num" id="stat-total">—</span>
-          <span class="stat-label">Total</span>
+          <span class="stat-label">Estudiantes</span>
         </div>
         <div class="stat-box">
           <span class="stat-num" id="stat-promedio">—</span>
@@ -693,7 +770,7 @@
         <div class="loading-state">Cargando registros... ⏳</div>
       </div>
       <div class="center">
-        <button class="btn-outline btn" onclick="mostrarPantalla('screen-welcome')">← Volver al inicio</button>
+        <button class="btn btn-outline btn-small" onclick="cerrarAdmin()">← Cerrar sesión</button>
       </div>
     </div>
   </div>
@@ -702,6 +779,7 @@
 
 <script>
 var SHEET_URL = "https://script.google.com/macros/s/AKfycbzIRg1IdGfvE_yO6unFGb_5WVLycZKlaQX8HM75ZVONDt68_lboMpvqKniGdPeKlbKK4w/exec";
+var ADMIN_PASS = "Jesus is the key";
 
 var preguntas = [
   {
@@ -828,11 +906,13 @@ function validarFormulario() {
   var nombre = document.getElementById('input-nombre').value.trim();
   var grado  = document.getElementById('input-grado').value;
   var edad   = document.getElementById('input-edad').value.trim();
+  var error  = document.getElementById('form-error');
 
-  if (!nombre) { alert('Por favor escribe tu nombre.'); return; }
-  if (!grado)  { alert('Por favor selecciona tu grado.'); return; }
-  if (!edad || edad < 10 || edad > 20) { alert('Por favor ingresa una edad válida.'); return; }
+  if (!nombre) { error.textContent = 'Por favor escribe tu nombre completo.'; return; }
+  if (!grado)  { error.textContent = 'Por favor selecciona tu grado.'; return; }
+  if (!edad || parseInt(edad) < 10 || parseInt(edad) > 20) { error.textContent = 'Por favor ingresa una edad válida.'; return; }
 
+  error.textContent = '';
   datosUsuario.nombre = nombre;
   datosUsuario.grado  = grado;
   datosUsuario.edad   = edad;
@@ -915,20 +995,17 @@ function mostrarResultado() {
 
   mostrarPantalla('screen-result');
 
-  // Guardar en Google Sheets
-  var payload = {
-    nombre:     datosUsuario.nombre,
-    grado:      datosUsuario.grado,
-    edad:       datosUsuario.edad,
-    nivel:      nivel.nivel,
-    porcentaje: porcentaje + '%'
-  };
-
   fetch(SHEET_URL, {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
+    body: JSON.stringify({
+      nombre:     datosUsuario.nombre,
+      grado:      datosUsuario.grado,
+      edad:       datosUsuario.edad,
+      nivel:      nivel.nivel,
+      porcentaje: porcentaje + '%'
+    })
   })
   .then(function() {
     savingBox.textContent = '✅ Resultado guardado correctamente.';
@@ -939,31 +1016,120 @@ function mostrarResultado() {
   });
 }
 
-// ===== PANEL =====
-function mostrarPanel() {
-  mostrarPantalla('screen-panel');
-  document.getElementById('registros-lista').innerHTML = '<div class="loading-state">Cargando registros... ⏳</div>';
-  document.getElementById('stat-total').textContent = '—';
-  document.getElementById('stat-promedio').textContent = '—';
+// ===== HISTORIAL ESTUDIANTE =====
+function verHistorial() {
+  mostrarPantalla('screen-historial');
+  document.getElementById('historial-nombre').textContent = datosUsuario.nombre + ' · ' + datosUsuario.grado;
+  var lista = document.getElementById('historial-lista');
+  lista.innerHTML = '<div class="loading-state">Cargando tu historial... ⏳</div>';
 
-  fetch(SHEET_URL + '?action=get', { method: 'GET', mode: 'no-cors' })
-  .then(function() {
-    // no-cors no permite leer la respuesta, mostramos mensaje orientativo
-    document.getElementById('registros-lista').innerHTML =
-      '<div class="empty-state">Los registros se guardan en tu Google Sheet.<br><br>Para verlos, abre tu hoja de cálculo en <strong>sheets.google.com</strong> 📊</div>';
-    document.getElementById('stat-total').textContent = '📊';
-    document.getElementById('stat-promedio').textContent = '📊';
+  fetch(SHEET_URL)
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    var todos = data.registros || [];
+    var nombreBuscar = datosUsuario.nombre.trim().toLowerCase();
+    var mios = todos.filter(function(r) {
+      return r.nombre && r.nombre.trim().toLowerCase() === nombreBuscar;
+    });
+
+    if (mios.length === 0) {
+      lista.innerHTML = '<div class="empty-state">No se encontraron evaluaciones anteriores con tu nombre.</div>';
+      return;
+    }
+
+    lista.innerHTML = '';
+    mios.reverse().forEach(function(r) {
+      var div = document.createElement('div');
+      div.className = 'registro-item';
+      div.innerHTML =
+        '<div class="registro-info">' +
+          '<div class="registro-nombre">' + r.nivel + '</div>' +
+          '<div class="registro-detalle">' + (r.fecha || '') + '</div>' +
+        '</div>' +
+        '<div class="registro-derecha">' +
+          '<div class="registro-pct">' + r.porcentaje + '</div>' +
+        '</div>';
+      lista.appendChild(div);
+    });
   })
   .catch(function() {
-    document.getElementById('registros-lista').innerHTML =
-      '<div class="empty-state">No se pudo conectar.<br>Revisa tu conexión a internet.</div>';
+    lista.innerHTML = '<div class="empty-state">No se pudo cargar el historial. Verifica tu conexión.</div>';
   });
+}
+
+// ===== ADMIN =====
+function verificarAdmin() {
+  var pass  = document.getElementById('input-admin-pass').value;
+  var error = document.getElementById('admin-error');
+  if (pass === ADMIN_PASS) {
+    error.textContent = '';
+    document.getElementById('input-admin-pass').value = '';
+    cargarPanel();
+  } else {
+    error.textContent = 'Contraseña incorrecta. Inténtalo de nuevo.';
+  }
+}
+
+function cargarPanel() {
+  mostrarPantalla('screen-panel');
+  document.getElementById('stat-total').textContent = '—';
+  document.getElementById('stat-promedio').textContent = '—';
+  var lista = document.getElementById('registros-lista');
+  lista.innerHTML = '<div class="loading-state">Cargando registros... ⏳</div>';
+
+  fetch(SHEET_URL)
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    var registros = data.registros || [];
+
+    if (registros.length === 0) {
+      lista.innerHTML = '<div class="empty-state">Aún no hay evaluaciones registradas.</div>';
+      document.getElementById('stat-total').textContent = '0';
+      document.getElementById('stat-promedio').textContent = '0%';
+      return;
+    }
+
+    // Estadísticas
+    document.getElementById('stat-total').textContent = registros.length;
+    var sumPct = 0;
+    var contPct = 0;
+    registros.forEach(function(r) {
+      var n = parseInt(r.porcentaje);
+      if (!isNaN(n)) { sumPct += n; contPct++; }
+    });
+    document.getElementById('stat-promedio').textContent = contPct > 0 ? Math.round(sumPct / contPct) + '%' : '—';
+
+    // Lista
+    lista.innerHTML = '';
+    registros.slice().reverse().forEach(function(r) {
+      var div = document.createElement('div');
+      div.className = 'registro-item';
+      div.innerHTML =
+        '<div class="registro-info">' +
+          '<div class="registro-nombre">' + r.nombre + '</div>' +
+          '<div class="registro-detalle">Grado ' + r.grado + ' · ' + r.edad + ' años · ' + (r.fecha || '') + '</div>' +
+        '</div>' +
+        '<div class="registro-derecha">' +
+          '<div class="registro-pct">' + r.porcentaje + '</div>' +
+          '<div class="registro-nivel">' + r.nivel + '</div>' +
+        '</div>';
+      lista.appendChild(div);
+    });
+  })
+  .catch(function() {
+    lista.innerHTML = '<div class="empty-state">No se pudo cargar. Verifica tu conexión.</div>';
+  });
+}
+
+function cerrarAdmin() {
+  mostrarPantalla('screen-welcome');
 }
 
 function reiniciar() {
   document.getElementById('input-nombre').value = '';
   document.getElementById('input-grado').value = '';
   document.getElementById('input-edad').value = '';
+  document.getElementById('form-error').textContent = '';
   datosUsuario = { nombre: '', grado: '', edad: '' };
   mostrarPantalla('screen-welcome');
 }
