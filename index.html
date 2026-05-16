@@ -759,7 +759,7 @@
       <div class="stats-row">
         <div class="stat-box">
           <span class="stat-num" id="stat-total">—</span>
-          <span class="stat-label">Estudiantes</span>
+          <span class="stat-label">Respuestas</span>
         </div>
         <div class="stat-box">
           <span class="stat-num" id="stat-promedio">—</span>
@@ -1089,8 +1089,13 @@ function cargarPanel() {
       return;
     }
 
-    // Estadísticas
-    document.getElementById('stat-total').textContent = registros.length;
+    // Estadísticas — estudiantes únicos por nombre
+    var nombresUnicos = [];
+    registros.forEach(function(r) {
+      var n = r.nombre ? r.nombre.trim().toLowerCase() : '';
+      if (n && nombresUnicos.indexOf(n) === -1) nombresUnicos.push(n);
+    });
+    document.getElementById('stat-total').textContent = nombresUnicos.length;
     var sumPct = 0;
     var contPct = 0;
     registros.forEach(function(r) {
